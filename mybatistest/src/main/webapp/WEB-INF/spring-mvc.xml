@@ -8,7 +8,7 @@
 
 
 	<!--扫描读取注解 配置 （组件扫描） 为了使用junit 将service、dao扫描放入applicationContext.xml内了交给spring，controller交给springmvc （不能重复扫描）-->
-	<context:component-scan base-package="com.zh">
+	<context:component-scan base-package="com.zh.controller">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 		<context:exclude-filter type="annotation"

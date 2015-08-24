@@ -44,10 +44,46 @@
 		<property name="connectionProperties" value="${dbcp.coding}" />
 	</bean>
 
-<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 数据库连接池 -->
 		<property name="dataSource" ref="dataSource" />
-	</bean> -->
+		<!-- 加载mybatis的全局配置文件 -->
+		<property name="configLocation" value="classpath:MybatisConfig.xml" />
+	</bean>
+
+	<!-- mapper扫描器 所谓的扫描dao -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+		<property name="basePackage" value="com.zh.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
 
 
+	<!-- 事务管理器 对mybatis操作数据库事务控制，spring使用jdbc的事务控制类 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+	<!-- 通知 -->
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager"> 
+		<tx:attributes> -->
+	<!-- 传播行为 -->
+	<!-- <tx:method name="save*" propagation="REQUIRED" /> <tx:method name="delete*" 
+		propagation="REQUIRED" /> <tx:method name="insert*" propagation="REQUIRED" 
+		/> <tx:method name="update*" propagation="REQUIRED" /> <tx:method name="find*" 
+		propagation="SUPPORTS" read-only="true" /> <tx:method name="get*" propagation="SUPPORTS" 
+		read-only="true" /> <tx:method name="select*" propagation="SUPPORTS" read-only="true" 
+		/> </tx:attributes> </tx:advice> -->
+	<!-- aop -->
+	<!-- <aop:config> <aop:advisor advice-ref="txAdvice" pointcut="execution(* 
+		com.zh.service.impl.*.*(..))" /> </aop:config> -->
+
+	<!-- AOP注解配置 -->
+	<aop:aspectj-autoproxy />
 
 </beans>
