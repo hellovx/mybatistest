@@ -44,9 +44,9 @@
 		<property name="connectionProperties" value="${dbcp.coding}" />
 	</bean>
 
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-	</bean>
+	</bean> -->
 
 
 
