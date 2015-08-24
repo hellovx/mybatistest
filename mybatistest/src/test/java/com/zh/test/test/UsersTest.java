@@ -24,7 +24,6 @@ public class UsersTest {
 		List<Users> list= usersService.getUsersList();
 		
 		for(Users u:list){
-			
 			System.out.println(u.getName());
 		}
 
