@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.zh.po.test.Users;
+import com.zh.pojo.test.Users;
 import com.zh.service.test.UsersService;
 
 public class UsersTest {

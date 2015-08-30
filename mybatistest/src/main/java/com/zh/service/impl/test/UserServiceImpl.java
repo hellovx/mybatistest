@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.zh.mapper.test.UsersMapper;
-import com.zh.po.test.Users;
+import com.zh.pojo.test.Users;
 import com.zh.service.test.UsersService;
 
 @Service("usersService")

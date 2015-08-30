@@ -2,7 +2,7 @@ package com.zh.service.test;
 
 import java.util.List;
 
-import com.zh.po.test.Users;
+import com.zh.pojo.test.Users;
 
 public interface UsersService {
 	

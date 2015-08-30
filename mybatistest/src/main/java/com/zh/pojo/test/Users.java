@@ -1,4 +1,4 @@
-package com.zh.po.test;
+package com.zh.pojo.test;
 
 public class Users {
 
