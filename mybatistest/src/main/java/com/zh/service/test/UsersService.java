@@ -7,5 +7,5 @@ import com.zh.pojo.test.Users;
 public interface UsersService {
 	
 	public List<Users> getUsersList();
-
+	public int insertUsersInfo(Users user);
 }

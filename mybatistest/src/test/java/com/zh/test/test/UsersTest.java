@@ -28,5 +28,30 @@ public class UsersTest {
 		}
 
 	}
+	
+	@Test
+	public void UsersInsertTest(){
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"applicationContext.xml");
+
+		usersService = (UsersService) context.getBean("usersService");
+		Users user=new Users();
+		user.setName("王五");
+		user.setAge(12);
+		user.setAddress("北京市朝阳区酒仙桥中心小学");
+		 
+		System.out.println("插入前主键为:"+user.getUid());
+		
+		int strid=usersService.insertUsersInfo(user);
+		
+		System.out.println(strid);
+		System.out.println("插入后主键为:"+user.getUid());
+		System.out.println("插入成功！！");
+		
+	}
+	
+	
+	
 
 }

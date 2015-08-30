@@ -2,9 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zh.mapper.test.UsersMapper" >
  
- <select id="getUsersList" resultType="com.zh.pojo.test.Users">
+ <select id="getUsersList"  resultType="com.zh.pojo.test.Users">
  
  SELECT  uid, NAME, age, address FROM  users LIMIT 0, 100
  </select>
+ 
+ <insert id="insertUsersInfo"  parameterType="com.zh.pojo.test.Users">
+ 
+ <selectKey keyProperty="uid" resultType="String" order="BEFORE">
+ select uuid()
+ </selectKey>
+ 
+ INSERT INTO users (uid,NAME,age,address) VALUES (#{uid},#{name},#{age},#{address})
+ </insert>
+ 
+ 
 
 </mapper>

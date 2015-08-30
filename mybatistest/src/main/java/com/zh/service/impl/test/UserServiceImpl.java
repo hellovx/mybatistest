@@ -20,5 +20,10 @@ public class UserServiceImpl implements UsersService {
 		// TODO Auto-generated method stub
 		return this.usersMapper.getUsersList();
 	}
+	public int insertUsersInfo(Users user) {
+		int strid=this.usersMapper.insertUsersInfo(user);
+		return strid;
+		
+	}
 
 }

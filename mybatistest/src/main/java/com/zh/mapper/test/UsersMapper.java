@@ -6,6 +6,7 @@ import com.zh.pojo.test.Users;
 
 public interface UsersMapper {
 	
-	List<Users> getUsersList();
+	public List<Users> getUsersList();
+	public int insertUsersInfo(Users user);
 
 }
